@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ARGHumanAR Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/ARGHumanAR" class="dashAnchor"></a>
+    <a title="ARGHumanAR Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        ARGHumanAR Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ARGCameraFrameData.html">ARGCameraFrameData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ARGContentInfo.html">ARGContentInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ARGHumanAR.html">ARGHumanAR</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ARGHumanARConfig.html">ARGHumanARConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ARGResultFrameData.html">ARGResultFrameData</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@ARGearSDKVersionNumber">ARGearSDKVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@ARGearSDKVersionString">ARGearSDKVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ARGHumanARProcessOptions.html">ARGHumanARProcessOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ARGImageFormat.html">ARGImageFormat</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ARGCameraConfig.html">ARGCameraConfig</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ARGHumanAR</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">ARGHumanAR</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ARGHumanAR</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>ARGear human AR APIs</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)setConfiguration:"></a>
+                    <a name="//apple_ref/objc/Method/-setConfiguration:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)setConfiguration:">-setConfiguration:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configure the ARGear SDK with project keys.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><code><a href="../Classes/ARGHumanARConfig.html">ARGHumanARConfig</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">setConfiguration</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/ARGHumanARConfig.html">ARGHumanARConfig</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">config</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Classes/ARGHumanARConfig.html">ARGHumanARConfig</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>config</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Configuration value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>false if otherwise</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)initialize:"></a>
+                    <a name="//apple_ref/objc/Method/-initialize:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)initialize:">-initialize:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize the AR category of the ARGearSDK.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><code><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">initialize</span><span class="p">:(</span><span class="n"><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></span><span class="p">)</span><span class="nv">categories</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">_</span> <span class="nv">categories</span><span class="p">:</span> <span class="kt"><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>categories</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of the ARHumanARCategory values</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>false if otherwise</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)finalize:"></a>
+                    <a name="//apple_ref/objc/Method/-finalize:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)finalize:">-finalize:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Finalize the Human AR category of ARGearSDK.
+ For each category value, finalization is required once before it terminates.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><code><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">finalize</span><span class="p">:(</span><span class="n"><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></span><span class="p">)</span><span class="nv">categories</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">finalize</span><span class="p">(</span><span class="n">_</span> <span class="nv">categories</span><span class="p">:</span> <span class="kt"><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>categories</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of the ARHumanARCategory values</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>false if otherwise</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)enableCategory:"></a>
+                    <a name="//apple_ref/objc/Method/-enableCategory:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)enableCategory:">-enableCategory:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enable Human AR cateory.
+ After initializing the category, it could be disabled and enabled using the
+ enableCateroty and disableCategory APIs.
+ This API loads the funtionalities of the seleted categories to the memory.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><code><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">enableCategory</span><span class="p">:(</span><span class="n"><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></span><span class="p">)</span><span class="nv">categories</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enable</span><span class="p">(</span><span class="n">_</span> <span class="nv">categories</span><span class="p">:</span> <span class="kt"><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>categories</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of the ARHumanARCategory values</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>false if otherwise</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)disableCategory:"></a>
+                    <a name="//apple_ref/objc/Method/-disableCategory:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)disableCategory:">-disableCategory:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Disable Human AR cateory.
+ After initializing the category, it could be disabled and enabled using the
+ enableCateroty and disableCategory APIs.
+ This API remove the funtionalities of the seleted categories from the memory.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><code><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">disableCategory</span><span class="p">:(</span><span class="n"><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></span><span class="p">)</span><span class="nv">categories</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disableCategory</span><span class="p">(</span><span class="n">_</span> <span class="nv">categories</span><span class="p">:</span> <span class="kt"><a href="../Enums/ARGHumanARCategory.html">ARGHumanARCategory</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>categories</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set of the ARHumanARCategory values</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>false if otherwise</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)processCameraFrame:"></a>
+                    <a name="//apple_ref/objc/Method/-processCameraFrame:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)processCameraFrame:">-processCameraFrame:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Process single data frame.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><code><a href="../Classes/ARGCameraFrameData.html">ARGCameraFrameData</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/ARGResultFrameData.html">ARGResultFrameData</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">processCameraFrame</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/ARGCameraFrameData.html">ARGCameraFrameData</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">cameraFrame</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">process</span><span class="p">(</span><span class="nv">cameraFrame</span><span class="p">:</span> <span class="kt"><a href="../Classes/ARGCameraFrameData.html">ARGCameraFrameData</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/ARGResultFrameData.html">ARGResultFrameData</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cameraFrame</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The input and output frame data. processed result also will be applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)processCameraFrame:options:"></a>
+                    <a name="//apple_ref/objc/Method/-processCameraFrame:options:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)processCameraFrame:options:">-processCameraFrame:<wbr>options:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Process single data frame.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><code><a href="../Classes/ARGCameraFrameData.html">ARGCameraFrameData</a></code></p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p><code><a href="../Enums/ARGHumanARProcessOptions.html">ARGHumanARProcessOptions</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/ARGResultFrameData.html">ARGResultFrameData</a></span> <span class="o">*</span><span class="p">)</span>
+    <span class="nf">processCameraFrame</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/ARGCameraFrameData.html">ARGCameraFrameData</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">cameraFrame</span>
+               <span class="nf">options</span><span class="p">:(</span><span class="n"><a href="../Enums/ARGHumanARProcessOptions.html">ARGHumanARProcessOptions</a></span><span class="p">)</span><span class="nv">options</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">process</span><span class="p">(</span><span class="nv">cameraFrame</span><span class="p">:</span> <span class="kt"><a href="../Classes/ARGCameraFrameData.html">ARGCameraFrameData</a></span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="kt"><a href="../Enums/ARGHumanARProcessOptions.html">ARGHumanARProcessOptions</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/ARGResultFrameData.html">ARGResultFrameData</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cameraFrame</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The input and output frame data. processed result also will be applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Processing options</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)getContentCategory"></a>
+                    <a name="//apple_ref/objc/Method/-getContentCategory" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)getContentCategory">-getContentCategory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the top-level content catetoriy list from the ARGear cloud.
+ The content categories could be defined from the project configuration in <a href="https://argear.io">https://argear.io</a>
+ site.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">getContentCategory</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getContentCategory</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>String array contains content caterory</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)getContentCategory:"></a>
+                    <a name="//apple_ref/objc/Method/-getContentCategory:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)getContentCategory:">-getContentCategory:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get content category list under the specific category from the ARGear cloud.
+The content categories could be defined from the project configuraiton in <a href="https://argear.io">https://argear.io</a>
+site.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">getContentCategory</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getContentCategory</span><span class="p">(</span><span class="n">_</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)getContentList:offset:count:"></a>
+                    <a name="//apple_ref/objc/Method/-getContentList:offset:count:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)getContentList:offset:count:">-getContentList:<wbr>offset:<wbr>count:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get content list under the specific category from the ARGear cloud.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/ARGContentInfo.html">ARGContentInfo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">getContentList</span><span class="p">:</span>
+                                           <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">category</span>
+                                               <span class="nf">offset</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">offset</span>
+                                                <span class="nf">count</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">count</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getContentList</span><span class="p">(</span><span class="n">_</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">offset</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/ARGContentInfo.html">ARGContentInfo</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)getContent:"></a>
+                    <a name="//apple_ref/objc/Method/-getContent:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)getContent:">-getContent:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the content from the ARGear cloud.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getContent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/ARGContentInfo.html">ARGContentInfo</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">content</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getContent</span><span class="p">(</span><span class="n">_</span> <span class="nv">content</span><span class="p">:</span> <span class="kt"><a href="../Classes/ARGContentInfo.html">ARGContentInfo</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>content</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Content</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)applyContent:"></a>
+                    <a name="//apple_ref/objc/Method/-applyContent:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)applyContent:">-applyContent:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Show the content on the screen aligned with face.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">applyContent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">uuid</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">applyContent</span><span class="p">(</span><span class="nv">uuid</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uuid</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UUID of the content</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)ARGHumanAR(im)cancelContent:"></a>
+                    <a name="//apple_ref/objc/Method/-cancelContent:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)ARGHumanAR(im)cancelContent:">-cancelContent:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove the content from the screen.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">cancelContent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">uuid</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelContent</span><span class="p">(</span><span class="nv">uuid</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uuid</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>UUID of the content</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2021 <a class="link" href="https://argear.io" target="_blank" rel="external noopener">Seerslab</a>. All rights reserved. (Last updated: 2021-12-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
