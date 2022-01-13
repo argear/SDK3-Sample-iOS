@@ -24,6 +24,7 @@
  *
  */
 
+#import "ARGCategoryInfo.h"
 #import "ARGContentInfo.h"
 #import "ARGFrame.h"
 #import "ARGHumanAR.h"

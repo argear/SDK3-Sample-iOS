@@ -42,31 +42,12 @@ final class CameraViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    setupObservers()
     setupUI()
     setupCamera()
     setupARGear()
 
-    argearHelper.fetchCategories()
-  }
-
-  private func setupObservers() {
-    NotificationCenter.default.addObserver(
-      forName: .init(rawValue: "didCategoryFetchComplete"),
-      object: nil,
-      queue: .main
-    ) { [weak self] _ in
-      guard let self = self else { return }
+    argearHelper.fetchCategories() {
       self.categoryCollectionView.reloadData()
-    }
-
-    NotificationCenter.default.addObserver(
-      forName: .init(rawValue: "didContentsFetchComplete"),
-      object: nil,
-      queue: .main
-    ) { [weak self] _ in
-      guard let self = self else { return }
-      self.contentCollectionView.reloadData()
     }
   }
 
@@ -219,21 +200,28 @@ extension CameraViewController: UICollectionViewDataSource, UICollectionViewDele
     if collectionView is CategoryCollectionView {
       return argearHelper.categories.count
     } else {
-      return argearHelper.currentCategory?.contents?.count ?? 0
+      return argearHelper.currentCategory?.contents.count ?? 0
     }
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell: UICollectionViewCell = {
-      let id = collectionView is CategoryCollectionView ? CategoryCell.reuseIdentifier : ContentCell.reuseIdentifier
-      return collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath)
+      let id = collectionView is CategoryCollectionView ?
+        CategoryCell.reuseIdentifier : ContentCell.reuseIdentifier
+
+      return collectionView.dequeueReusableCell(
+        withReuseIdentifier: id,
+        for: indexPath
+      )
     }()
 
     if collectionView is CategoryCollectionView {
-      return cell as! CategoryCell
+      let c = cell as! CategoryCell
+      c.category = argearHelper.categories[indexPath.item]
+      return c
     } else {
       let contentCell = cell as! ContentCell
-      guard let content = argearHelper.currentCategory?.contents?[indexPath.item] else { return cell }
+      guard let content = argearHelper.currentCategory?.contents[indexPath.item] else { return cell }
 
       contentCell.set(content: content)
       return cell
@@ -242,10 +230,22 @@ extension CameraViewController: UICollectionViewDataSource, UICollectionViewDele
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     if collectionView is CategoryCollectionView {
-      argearHelper.fetchContents(categoryIndex: indexPath.item)
-      contentCollectionView.isHidden = false
+      argearHelper.fetchContents(categoryIndex: indexPath.item) {
+        self.contentCollectionView.reloadData()
+        self.contentCollectionView.isHidden = false
+      }
     } else {
       argearHelper.selectContent(contentIndex: indexPath.item)
+    }
+  }
+
+  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    guard let currentCategory = argearHelper.currentCategory else { return true }
+
+    if collectionView is CategoryCollectionView {
+      return argearHelper.categories[indexPath.item].uuid != currentCategory.uuid
+    } else {
+      return currentCategory.contents[indexPath.item].uuid != argearHelper.currentContentUUID
     }
   }
 }

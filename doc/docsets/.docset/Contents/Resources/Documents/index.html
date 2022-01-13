@@ -41,6 +41,9 @@
                 <a href="Classes/ARGCameraFrameData.html">ARGCameraFrameData</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/ARGCategoryInfo.html">ARGCategoryInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/ARGContentInfo.html">ARGContentInfo</a>
               </li>
               <li class="nav-group-task">
@@ -93,25 +96,104 @@
         <section>
           <section class="section">
             
-            <h1 id='argearsdk-for-ios' class='heading'>ARGearSDK for iOS</h1>
-<h2 id='requirements' class='heading'>Requirements</h2>
+            <h1 id='argear-ios-sdk' class='heading'>ARGear iOS SDK</h1>
 
-<ul>
-<li>iOS deployment target 11.0 above required.</li>
-<li>Architecture : arm64</li>
-</ul>
-<h2 id='example' class='heading'>Example</h2>
-<pre class="highlight shell"><code><span class="nv">$ </span><span class="nb">cd </span>samples/sample-argear
-<span class="nv">$ </span>xed <span class="nb">.</span> <span class="c"># or just open sample-argear.xcodeproj</span>
+<p>&copy; Copyright 2021 Seerslab. All rights reserved.</p>
+<h3 id='programming-guide' class='heading'>Programming Guide</h3>
+
+<p>Please read while referring to the code of the sample project.</p>
+<h4 id='1-creating-sdk-components' class='heading'>1. Creating SDK Components</h4>
+
+<p>Prior to writing your own application code, you should create your project to communicate with your mobile application from the <a href="https://console.argear.io">ARGear Console</a>. After you log in to the console, you can get information on how to create the project from the support section.
+If you create the project successfully, you will see the KEY information to use SDK validation as below.</p>
+
+<p><img src="https://user-images.githubusercontent.com/94022774/146729616-e54359e1-59b2-4e5d-8144-585eca718f63.png" alt="Project Key Information"><br />
+The Application ID should be same with your mobile appication package name.</p>
+
+<blockquote>
+<p>Above key information is the same as this sample project.</p>
+</blockquote>
+
+<p>Using this key information, you can create an SDK interface instance, <code><a href="Classes/ARGHumanAR.html">ARGHumanAR</a></code>, as follows:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">ARGHumanARConfig</span><span class="p">()</span>
+
+<span class="n">config</span><span class="o">.</span><span class="n">cmsURL</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://apis.argear.io"</span><span class="p">)</span><span class="o">!</span>
+<span class="n">config</span><span class="o">.</span><span class="n">apiKey</span> <span class="o">=</span> <span class="kt">API_KEY</span>
+<span class="n">config</span><span class="o">.</span><span class="n">secretKey</span> <span class="o">=</span> <span class="kt">SECRET_KEY</span>
+<span class="n">config</span><span class="o">.</span><span class="n">authKey</span> <span class="o">=</span> <span class="kt">AUTH_KEY</span>
+
+<span class="n">humanAR</span> <span class="o">=</span> <span class="kt">ARGHumanAR</span><span class="p">()</span>
+<span class="n">humanAR</span><span class="o">.</span><span class="nf">setConfiguration</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 </code></pre>
-<h2 id='programming-guide' class='heading'>Programming Guide</h2>
+<h4 id='2-getting-content-categories' class='heading'>2. Getting content categories</h4>
 
-<p>WIP</p>
+<p>Initialize SDK component with content category.</p>
+<pre class="highlight swift"><code><span class="n">humanAR</span><span class="o">.</span><span class="nf">initialize</span><span class="p">(</span><span class="o">.</span><span class="n">face</span><span class="p">)</span>
+</code></pre>
+
+<p>Content categories are defined as below.</p>
+<pre class="highlight plaintext"><code>none             : Nothing
+face             : Face AR
+beautification   : Beautification
+bgSegmentation   : Background Segmentation
+faceSegmentation : Face segmentation ( to be added ) 
+footFitting      : Foot pose fitting ( to be added ) 
+glassFitting     : Glass fitting ( to be added ) 
+all              : All categories
+</code></pre>
+
+<p>You can get information about currently available categories by using <code>getContentCategory(_:)</code> .</p>
+<pre class="highlight swift"><code><span class="c1">// UUIDs of each categories</span>
+<span class="k">let</span> <span class="nv">categories</span> <span class="o">=</span> <span class="n">humanAR</span><span class="o">.</span><span class="nf">getContentCategory</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</code></pre>
+<h4 id='3-getting-list-of-contents' class='heading'>3. Getting list of contents</h4>
+
+<p>To augment various contents on the human face in the screen, you need to get the content information from the ARGear cloud. The contents information includes UUID, thumbnail URI,  content URI, and so on. You can get the content list by using <code>getContentList(_:offset:count:)</code> API.</p>
+<pre class="highlight swift"><code><span class="c1">// Array of `ARGContentInfo`</span>
+<span class="k">let</span> <span class="nv">contents</span> <span class="o">=</span> <span class="n">humanAR</span><span class="o">.</span><span class="nf">getContentList</span><span class="p">(</span><span class="n">categoryUUID</span><span class="p">,</span> <span class="nv">offset</span><span class="p">:</span> <span class="n">offset</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="n">count</span><span class="p">)</span>
+</code></pre>
+
+<p>This API provides the content list under certain <code>category</code>. The offset is value of the starting position from the begining and the <code>count</code> is reqeust number of contents.</p>
+
+<p>And then use <code>getContent(_:)</code> to download content.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">content</span> <span class="o">=</span> <span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">humanAR</span><span class="o">.</span><span class="nf">getContent</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</code></pre>
+<h4 id='4-getting-camera-video-frames-and-passing-to-sdk-for-image-processing' class='heading'>4. Getting camera video frames and passing to SDK for image processing</h4>
+
+<p>You can get the camera video frame data from <code>AVCaptureVideoDataOutputSampleBufferDelegate</code> .</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">SampleViewController</span><span class="p">:</span> <span class="kt">AVCaptureVideoDataOutputSampleBufferDelegate</span> <span class="p">{</span>
+  <span class="kd">func</span> <span class="nf">captureOutput</span><span class="p">(</span><span class="n">_</span> <span class="nv">output</span><span class="p">:</span> <span class="kt">AVCaptureOutput</span><span class="p">,</span> <span class="n">didOutput</span> <span class="nv">sampleBuffer</span><span class="p">:</span> <span class="kt">CMSampleBuffer</span><span class="p">,</span> <span class="n">from</span> <span class="nv">connection</span><span class="p">:</span> <span class="kt">AVCaptureConnection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">pixelBuffer</span> <span class="o">=</span> <span class="kt">CMSampleBufferGetImageBuffer</span><span class="p">(</span><span class="n">sampleBuffer</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+    <span class="k">let</span> <span class="nv">cameraFrameData</span> <span class="o">=</span> <span class="kt">ARGCameraFrameData</span><span class="p">(</span><span class="nv">cameraConfig</span><span class="p">:</span> <span class="n">cameraConfig</span><span class="p">,</span> <span class="nv">buffer</span><span class="p">:</span> <span class="n">pixelBuffer</span><span class="p">)</span>
+
+    <span class="c1">// Processed data is set to HumanAR</span>
+    <span class="k">let</span> <span class="nv">resultFrameData</span> <span class="o">=</span> <span class="n">humanAR</span><span class="o">.</span><span class="nf">process</span><span class="p">(</span><span class="nv">cameraFrame</span><span class="p">:</span> <span class="n">cameraFrameData</span><span class="p">)</span>
+
+    <span class="kt">DispatchQueue</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">sync</span> <span class="p">{</span>
+      <span class="c1">// Simple preview. Implement Metal render if needed.</span>
+      <span class="n">previewView</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">contents</span> <span class="o">=</span> <span class="n">pixelBuffer</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id='5-applying-amp-clearing-content' class='heading'>5. Applying &amp; Clearing Content</h4>
+
+<p>To apply (or clear) specific content on the screen, you can use following APIs.</p>
+<pre class="highlight swift"><code><span class="c1">// Apply specific content</span>
+<span class="n">humanAR</span><span class="o">.</span><span class="nf">applyContent</span><span class="p">(</span><span class="nv">uuid</span><span class="p">:</span> <span class="n">contentUUID</span><span class="p">)</span>
+
+<span class="c1">// Clear specific content</span>
+<span class="n">humanAR</span><span class="o">.</span><span class="nf">cancelContent</span><span class="p">(</span><span class="nv">uuid</span><span class="p">:</span> <span class="n">contentUUID</span><span class="p">)</span>
+</code></pre>
+
+<p>The content selected by the user is applied after clearing the previous content.</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://argear.io" target="_blank" rel="external noopener">Seerslab</a>. All rights reserved. (Last updated: 2021-12-30)</p>
+          <p>&copy; 2022 <a class="link" href="https://argear.io" target="_blank" rel="external noopener">Seerslab</a>. All rights reserved. (Last updated: 2022-01-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

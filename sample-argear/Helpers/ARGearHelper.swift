@@ -20,81 +20,69 @@ import ARGearSDK
 
 final class ARGearHelper: NSObject {
   private let humanAR = ARGHumanAR()
-  private let fetchDataQueue = DispatchQueue(label: "fetch")
   private var isContentDownloaded = [String : Bool]()
 
   private(set) var categories = [Category]()
   private(set) var currentCategory: Category?
   private(set) var currentContentUUID: String?
+  private(set) var isApplyingContent = false
 
   func initialize() {
     setConfig()
     humanAR.initialize(.face)
   }
 
-  func fetchCategories(key: String = "") {
-    fetchDataQueue.async {
-      let categories = self.humanAR.getContentCategory(key).map { Category(uuid: $0) }
+  func fetchCategories(key: String = "", completion: @escaping () -> Void) {
+    humanAR.getContentCategory { categoryInfos in
+      self.categories = categoryInfos.map { Category($0) }
 
-      DispatchQueue.main.sync {
-        self.categories = categories
-      }
-      
-      NotificationCenter.default.post(
-        name: .init(rawValue: "didCategoryFetchComplete"),
-        object: nil
-      )
+      completion()
     }
   }
 
-  func fetchContents(categoryIndex: Int) {
-    fetchDataQueue.async {
-      let category = self.categories[categoryIndex]
+  func fetchContents(categoryIndex: Int, completion: @escaping () -> Void) {
+    let category = categories[categoryIndex]
 
-      if let contents = category.contents, contents.count > 0 { return }
+    if category.contents.count > 0 { return }
 
-      let contentList = self.humanAR.getContentList(category.uuid, offset: 0, count: 0)
-      category.setContents(contentList)
+    humanAR.getContentList(category: category.uuid, offset: 0, count: 0) { contentInfos in
+      category.setContents(contentInfos)
+      self.currentCategory = self.categories[categoryIndex]
 
-      DispatchQueue.main.sync {
-        self.currentCategory = self.categories[categoryIndex]
-      }
-
-      NotificationCenter.default.post(
-        name: .init(rawValue: "didContentsFetchComplete"),
-        object: nil
-      )
+      completion()
     }
   }
 
   func selectContent(contentIndex: Int) {
-    guard let category = currentCategory,
-          let content = category.contents?[contentIndex]
-    else { return }
+    if isApplyingContent { return }
+    guard let content = currentCategory?.contents[contentIndex] else { return }
 
-    if let uuid = currentContentUUID {
-      if uuid == content.uuid { return }
-
-      humanAR.cancelContent(uuid: uuid)
+    if let applied = currentContentUUID {
+      humanAR.cancelContent(uuid: applied)
+      currentContentUUID = nil
     }
 
-    currentContentUUID = content.uuid
+    isApplyingContent = true
 
-    fetchDataQueue.async {
-      if !(self.isContentDownloaded[content.uuid] ?? false) {
+    guard (isContentDownloaded[content.uuid] ?? false) else {
+      DispatchQueue(label: "getContent").async {
         self.humanAR.getContent(content)
-        self.isContentDownloaded.updateValue(true, forKey: content.uuid)
+
+        DispatchQueue.main.async {
+          self.isContentDownloaded.updateValue(true, forKey: content.uuid)
+          self.applyContent(uuid: content.uuid)
+        }
       }
 
-      DispatchQueue.main.sync {
-        self.humanAR.applyContent(uuid: content.uuid)
-      }
+      return
     }
+
+    applyContent(uuid: content.uuid)
   }
 
   func reset() {
-    guard let contentUUID = currentContentUUID else { return }
-    humanAR.cancelContent(uuid: contentUUID)
+    humanAR.cancelAllContent()
+    currentContentUUID = nil
   }
 
   func process(cameraFrame: ARGCameraFrameData, options: ARGHumanARProcessOptions = .none) -> ARGResultFrameData? {
@@ -112,5 +100,11 @@ final class ARGearHelper: NSObject {
     config.uncompressedContentPath = "UncompressedContent"
 
     humanAR.setConfiguration(config)
+  }
+
+  private func applyContent(uuid: String) {
+    humanAR.applyContent(uuid: uuid)
+    currentContentUUID = uuid
+    isApplyingContent = false
   }
 }

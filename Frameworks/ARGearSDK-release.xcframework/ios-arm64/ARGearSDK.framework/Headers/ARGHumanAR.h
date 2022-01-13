@@ -137,24 +137,27 @@
  * Get the top-level content catetoriy list from the ARGear cloud.
  * The content categories could be defined from the project configuration in https://argear.io
  * site.
- *
- * @return  String array contains content caterory
  */
-- (nonnull NSArray<NSString *> *)getContentCategory;
+- (void)getContentCategory:(void (^ _Nonnull)(NSArray<ARGCategoryInfo *> * _Nonnull))completion
+  NS_SWIFT_NAME(getContentCategory(completion:));
 
 /**
- * Get content category list under the specific category from the ARGear cloud.
- * The content categories could be defined from the project configuraiton in https://argear.io
+ * Get the top-level content catetoriy list from the ARGear cloud.
+ * The content categories could be defined from the project configuration in https://argear.io
  * site.
  */
-- (nonnull NSArray<NSString *> *)getContentCategory:(nonnull NSString *)key;
+- (void)getContentCategoryByKey:(NSString * _Nonnull)key
+                     completion:(void (^ _Nonnull)(NSArray<ARGCategoryInfo *> * _Nonnull))completion
+  NS_SWIFT_NAME(getContentCategory(key:completion:));
 
 /**
  * Get content list under the specific category from the ARGear cloud.
  */
-- (nonnull NSArray<ARGContentInfo *> *)getContentList:(nonnull NSString *)category
-                                               offset:(NSUInteger)offset
-                                                count:(NSUInteger)count;
+- (void)getContentList:(nonnull NSString *)category
+                offset:(NSUInteger)offset
+                 count:(NSUInteger)count
+            completion:(void (^ _Nonnull)(NSArray<ARGContentInfo *> * _Nonnull))completion
+  NS_SWIFT_NAME(getContentList(category:offset:count:completion:));
 
 /**
  * Get the content from the ARGear cloud.
@@ -178,6 +181,11 @@
  */
 - (void)cancelContent:(nonnull NSString *)uuid
   NS_SWIFT_NAME(cancelContent(uuid:));
+
+/**
+ * Remove All content from the screen.
+ */
+- (void)cancelAllContent;
 
 @end
 

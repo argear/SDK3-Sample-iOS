@@ -46,8 +46,8 @@
 /**
  * Initializer
  *
- * @param   uuid                      URI of the content thumbnail image
- * @param   uri                        URI of the content
+ * @param   uuid            UUID of the content
+ * @param   uri             URI of the content
  * @param   thumbnailURI    URI of the content thumbnail image
  */
 - (nonnull instancetype)initWithUUID:(nonnull NSString *)uuid

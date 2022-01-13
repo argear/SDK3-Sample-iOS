@@ -16,14 +16,14 @@
 		7043B94827603E3B0076E72A /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7043B94627603E3B0076E72A /* CameraHelper.swift */; };
 		7043B94E2760517B0076E72A /* ARGearHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7043B94D2760517B0076E72A /* ARGearHelper.swift */; };
 		7043B95B2760AA1F0076E72A /* SymbolButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7043B95A2760AA1F0076E72A /* SymbolButton.swift */; };
-		7054ABA5277B1F7000E29A57 /* ARGearSDK-release.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7054ABA2277B1F6900E29A57 /* ARGearSDK-release.xcframework */; };
-		7054ABA6277B1F7000E29A57 /* ARGearSDK-release.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7054ABA2277B1F6900E29A57 /* ARGearSDK-release.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		706700A427731018003FA74B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706700A327731018003FA74B /* Category.swift */; };
 		7088D0F1276322F800B922C4 /* CategoryCollectionVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7088D0F0276322F800B922C4 /* CategoryCollectionVIew.swift */; };
 		7088D0F32763267200B922C4 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7088D0F22763267200B922C4 /* CategoryCell.swift */; };
 		7088D0F527632BED00B922C4 /* ContentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7088D0F427632BED00B922C4 /* ContentCollectionView.swift */; };
 		7088D0F727632C1600B922C4 /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7088D0F627632C1600B922C4 /* ContentCell.swift */; };
 		7088D0FB2766747000B922C4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7088D0FA2766747000B922C4 /* CollectionViewCell.swift */; };
+		70C24309278C3E7D00A978A4 /* ARGearSDK-release.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C24308278C3E7D00A978A4 /* ARGearSDK-release.xcframework */; };
+		70C2430A278C3E7D00A978A4 /* ARGearSDK-release.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70C24308278C3E7D00A978A4 /* ARGearSDK-release.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,7 +33,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7054ABA6277B1F7000E29A57 /* ARGearSDK-release.xcframework in Embed Frameworks */,
+				70C2430A278C3E7D00A978A4 /* ARGearSDK-release.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,13 +52,13 @@
 		7043B94627603E3B0076E72A /* CameraHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
 		7043B94D2760517B0076E72A /* ARGearHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGearHelper.swift; sourceTree = "<group>"; };
 		7043B95A2760AA1F0076E72A /* SymbolButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolButton.swift; sourceTree = "<group>"; };
-		7054ABA2277B1F6900E29A57 /* ARGearSDK-release.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "ARGearSDK-release.xcframework"; sourceTree = "<group>"; };
 		706700A327731018003FA74B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7088D0F0276322F800B922C4 /* CategoryCollectionVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionVIew.swift; sourceTree = "<group>"; };
 		7088D0F22763267200B922C4 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		7088D0F427632BED00B922C4 /* ContentCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionView.swift; sourceTree = "<group>"; };
 		7088D0F627632C1600B922C4 /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		7088D0FA2766747000B922C4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		70C24308278C3E7D00A978A4 /* ARGearSDK-release.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "ARGearSDK-release.xcframework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7054ABA5277B1F7000E29A57 /* ARGearSDK-release.xcframework in Frameworks */,
+				70C24309278C3E7D00A978A4 /* ARGearSDK-release.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +128,7 @@
 		705DE9B7273BDB110008FC9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7054ABA2277B1F6900E29A57 /* ARGearSDK-release.xcframework */,
+				70C24308278C3E7D00A978A4 /* ARGearSDK-release.xcframework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";

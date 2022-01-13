@@ -20,12 +20,13 @@ import ARGearSDK
 
 final class Category {
   let uuid: String
-  var title: String?
+  let title: String
 
-  private(set)var contents: [ARGContentInfo]?
+  private(set)var contents = [ARGContentInfo]()
 
-  init(uuid: String) {
-    self.uuid = uuid
+  init(_ category: ARGCategoryInfo) {
+    uuid = category.uuid
+    title = category.title
   }
 
   func setContents(_ contents: [ARGContentInfo]) {

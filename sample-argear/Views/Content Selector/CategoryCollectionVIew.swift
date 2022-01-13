@@ -30,7 +30,7 @@ final class CategoryCollectionView: UICollectionView {
   init() {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
-    layout.itemSize = CGSize(width: 50, height: 50)
+    layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     
     super.init(frame: .zero, collectionViewLayout: layout)
     register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseIdentifier)

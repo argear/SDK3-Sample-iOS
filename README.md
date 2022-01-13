@@ -64,17 +64,20 @@ none             : Nothing
 face             : Face AR
 beautification   : Beautification
 bgSegmentation   : Background Segmentation
-faceSegmentation : Face segmentation ( to be added ) 
-footFitting      : Foot pose fitting ( to be added ) 
-glassFitting     : Glass fitting ( to be added ) 
+faceSegmentation : Face segmentation ( to be added )
+footFitting      : Foot pose fitting ( to be added )
+glassFitting     : Glass fitting ( to be added )
 all              : All categories
 ```
 
 You can get information about currently available categories by using `getContentCategory(_:)` .
 
 ``` swift
-// UUIDs of each categories
-let categories = humanAR.getContentCategory(key)
+humanAR.getContentCategory(key) { categories in
+  // Array of `ARGCategoryInfo`:
+  // Which contains UUID and title of each categories
+  self.categories = categories ...
+}
 ```
 
 #### 2.3 Getting list of contents
@@ -82,8 +85,10 @@ let categories = humanAR.getContentCategory(key)
 To augment various contents on the human face in the screen, you need to get the content information from the ARGear cloud. The contents information includes UUID, thumbnail URI,  content URI, and so on. You can get the content list by using `getContentList(_:offset:count:)` API.
 
 ``` swift
-// Array of `ARGContentInfo`
-let contents = humanAR.getContentList(categoryUUID, offset: offset, count: count)
+humanAR.getContentList(categoryUUID, offset: offset, count: count) { contents in
+  // Array of `ARGContentInfo`
+  self.contents = contents ...
+}
 ```
 
 This API provides the content list under certain `category`. The offset is value of the starting position from the begining and the `count` is reqeust number of contents.
@@ -125,6 +130,9 @@ humanAR.applyContent(uuid: contentUUID)
 
 // Clear specific content
 humanAR.cancelContent(uuid: contentUUID)
+
+// Clear all contents
+humanAR.cancelAllContent()
 ```
 
 The content selected by the user is applied after clearing the previous content.

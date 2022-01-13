@@ -21,14 +21,18 @@ import UIKit
 final class CategoryCell: CollectionViewCell {
   override var isSelected: Bool {
     didSet {
-      button.backgroundColor = isSelected ? .lightGray : .white
+      contentView.backgroundColor = isSelected ? .lightGray : .white
     }
   }
 
-  private lazy var button = SymbolButton(
-    frame: CGRect(x: 0, y: 0, width: 50, height: 50),
-    systemName: "folder.fill"
-  )
+  var category: Category? {
+    didSet {
+      titleLabel.text = category?.title
+    }
+  }
+
+  private let button = UIButton()
+  private let titleLabel = UILabel()
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -40,8 +44,23 @@ final class CategoryCell: CollectionViewCell {
   }
 
   private func setupUI() {
-    button.isUserInteractionEnabled = false
-    contentView.addSubview(button)
-    button.center = contentView.center
+    contentView.backgroundColor = .white
+    contentView.layer.cornerRadius = 8
+    contentView.addSubview(titleLabel)
+
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    titleLabel.textColor = .black
+
+    NSLayoutConstraint.activate([
+      titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+      titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+      titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
+    ])
+  }
+
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    titleLabel.text = nil
+    contentView.backgroundColor = .white
   }
 }
